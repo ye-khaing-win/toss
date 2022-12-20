@@ -1,0 +1,271 @@
+[
+  {
+    "sector": "Accountancy",
+    "branches": [
+      {
+        "branch": "RESTRUCTURING AND INSOLVENCY",
+        "jobs": [
+          {
+            "title": "Restructuring and Insolvency Associate/Restructuring and Insolvency Executive",
+            "description": "The Restructuring and Insolvency Associate/Restructuring and Insolvency Executive conducts initial market research and financial analyses. He/She participates in business development and stakeholder interactions. He is expected to adhere to standards of ethics and maintain quality assurance in processes. He is diligent in researching and is able to synthesise information to develop relevant insights. He possesses strong time management and communication skills. The Restructuring and Insolvency Associate/Restructuring and Insolvency Executive would typically have had prior exposure to other accounting and advisory functions, and is expected to embark on a steep learning curve to acquire various skills and expertise in restructuring and insolvency",
+            "criticalWorkFunctions": [
+              {
+                "function": "Advise clients in optimising financial performance and preserving capital",
+                "keyTasks": [
+                  "Assist in gathering business and functional requirements",
+                  "Analyse historical financial performance and perform cash flows analyses",
+                  "Perform research on potential solutions for improving liquidity, credit availability and shareholder return"
+                ]
+              },
+              {
+                "function": "Conduct consensual restructurings, schemes and/ or corporate restructurings",
+                "keyTasks": [
+                  "Conduct financial analyses, financial statements review and assess business performance",
+                  "Gather relevant data and information to develop financial restructuring plans",
+                  "Prepare documents for sales of distressed assets",
+                  "Research and gather information on legal entity structure of clients"
+                ]
+              }
+            ],
+
+            "skillsAndCompetencies": {
+              "technicalSkills": [
+                {
+                  "skill": "Business Acumen",
+                  "level": 4
+                },
+                {
+                  "skill": "Business Negotiation",
+                  "level": 3
+                },
+                {
+                  "skill": "Capital Raising",
+                  "level": 3
+                },
+                {
+                  "skill": "Cash Flow Management",
+                  "level": 3
+                }
+              ],
+              "genericSkills": [
+                {
+                  "skill": "Teamwork",
+                  "level": 2
+                },
+                {
+                  "skill": "Sense Making ",
+                  "level": 2
+                },
+                {
+                  "skill": "Interpersonal Skills",
+                  "level": 1
+                },
+                {
+                  "skill": "Communication",
+                  "level": 1
+                },
+                {
+                  "skill": "Problem Solving ",
+                  "level": 1
+                }
+              ]
+            }
+          },
+          {
+            "title": "Restructuring and Insolvency Senior/ Restructuring and Insolvency Senior Executive",
+            "description": "The Restructuring and Insolvency Senior/Restructuring and Insolvency Senior Executive is in charge of day-to-day operations, from a restructuring and insolvency perspective. He/She manages the restructuring and insolvency processes for the client engagements that he is responsible for, or the business that he belongs to. He is expected to adhere to standards of ethics and maintain quality assurance in processes.\nHe participates in business development and is expected to interact with stakeholders to manage project deliverables and timelines. He has a significant level of technical expertise and is very hands-on with the restructuring and insolvency processes. He must be able to work in a fast-paced environment.\nHe needs to have strong project management skills and be efficient in his work to manage multiple deadlines. He is able to interpret data and communicate the insights derived to his team members.",
+            "criticalWorkFunctions": [
+              {
+                "function": "Advise clients in optimising financial performance and preserving capital",
+                "keyTasks": [
+                  "Analyse business and functional requirements to provide advice to clients ",
+                  "Review cash requirements of businesses and projected cash flows",
+                  "Prepare proposed solutions for improving liquidity, credit availability and shareholder return"
+                ]
+              },
+              {
+                "function": "Conduct consensual restructurings, schemes and/or corporate restructurings",
+                "keyTasks": [
+                  "Perform financial analyses, financial modelling and assess business performance",
+                  "Assist in developing financial restructuring plans",
+                  "Assist in the sales of distressed assets",
+                  "Identify opportunities to simplify legal entity structures of clients"
+                ]
+              }
+            ],
+            "skillsAndCompetencies": {
+              "technicalSkills": [
+                {
+                  "skill": "Business Acumen",
+                  "level": 4
+                },
+                {
+                  "skill": "Business Negotiation",
+                  "level": 3
+                },
+                {
+                  "skill": "Capital Raising",
+                  "level": 3
+                },
+                {
+                  "skill": "Cash Flow Management",
+                  "level": 3
+                }
+              ],
+              "genericSkills": [
+                {
+                  "skill": "Problem Solving",
+                  "level": 2
+                },
+                {
+                  "skill": "Sense Making ",
+                  "level": 2
+                },
+                {
+                  "skill": "Teamwork ",
+                  "level": 2
+                },
+                {
+                  "skill": "Creative Thinking",
+                  "level": 2
+                },
+                {
+                  "skill": "Communication",
+                  "level": 2
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "MERGERS AND ACQUISITIONS",
+        "jobs": [
+          {
+            "title": "Accounting Executive",
+            "description": "The Accounting Executive supports the finance department in carrying out the responsibilities of the accounting balance sheet analysis and reconciliations, and report preparation. He is expected to assist in the budgeting and forecasting process. The Accounting Executive is required to have a basic understanding of the business structures, operations and financial performance. He may be called on to participate in ad-hoc finance-related projects and systems testing when necessary. He is meticulous and has good management skills.",
+            "criticalWorkFunctions": [
+              {
+                "function": "Support strategic planning",
+                "keyTasks": [
+                  "Assist in the balance sheet analysis and reconciliations process",
+                  "Assist in the budgeting and forecasting process",
+                  "Assist in profit and loss analysis"
+                ]
+              },
+              {
+                "function": "Manage efficiency and effectiveness of resource allocation",
+                "keyTasks": [
+                  "Analyse and prepare financial ratio, liquidity ratio, working capital ratio and gearing ratio ",
+                  "Prepare cost analysis"
+                ]
+              }
+            ],
+            "skillsAndCompetencies": {
+              "technicalSkills": [
+                {
+                  "skill": "Accounting and Tax Systems",
+                  "level": 2
+                },
+                {
+                  "skill": "Audit Compliance",
+                  "level": 3
+                },
+                {
+                  "skill": "Benchmarking",
+                  "level": 3
+                },
+                {
+                  "skill": "Conflict Management ",
+                  "level": 5
+                }
+              ],
+              "genericSkills": [
+                {
+                  "skill": "Communication",
+                  "level": 2
+                },
+                {
+                  "skill": "Sense Making ",
+                  "level": 1
+                },
+                {
+                  "skill": "Transdisciplinary Thinking",
+                  "level": 1
+                },
+                {
+                  "skill": "Problem Solving ",
+                  "level": 1
+                }
+              ]
+            }
+          },
+          {
+            "title": "Management Accountant/Financial Planning and Analysis Analyst/Business Analyst",
+            "description": "The Management Accountant/Financial Planning and Analysis Analyst/Business Analyst is typically responsible for a segment of the overall management accounting system. He/She also identifies trends and opportunities for improvemen analyses and manages risk, arranges the funding and financing of operations and monitors and enforces compliance. He maintains an organisation’s financial system.",
+            "criticalWorkFunctions": [
+              {
+                "function": "Support strategic planning",
+                "keyTasks": [
+                  "Assist in the preparation of management report with written narratives to support analysis and findings ",
+                  "Perform financial modelling process to analyse proposals on financial and non-financial return",
+                  "Extract insights from financial statements"
+                ]
+              },
+              {
+                "function": "Manage efficiency and effectiveness of resource allocation",
+                "keyTasks": [
+                  "Analyse trends, possible improvements, areas of risks, financing and any key issues relating to the business",
+                  "Review the completeness of the financial accounts and cost accounting",
+                  "• Support proposed improvement by providing analysis of operational efficiency"
+                ]
+              }
+            ],
+            "skillsAndCompetencies": {
+              "technicalSkills": [
+                {
+                  "skill": "Accounting and Tax Systems",
+                  "level": 4
+                },
+                {
+                  "skill": "Business Negotiation",
+                  "level": 3
+                },
+                {
+                  "skill": "Capital Raising",
+                  "level": 3
+                },
+                {
+                  "skill": "Cash Flow Management",
+                  "level": 3
+                }
+              ],
+              "genericSkills": [
+                {
+                  "skill": "Problem Solving",
+                  "level": 2
+                },
+                {
+                  "skill": "Sense Making ",
+                  "level": 2
+                },
+                {
+                  "skill": "Teamwork ",
+                  "level": 2
+                },
+                {
+                  "skill": "Creative Thinking",
+                  "level": 2
+                },
+                {
+                  "skill": "Communication",
+                  "level": 2
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

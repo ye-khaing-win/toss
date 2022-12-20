@@ -11,3 +11,8 @@ export const filterObj = (obj, ...allowedFields) => {
   // 3) Return filtered object
   return newObj;
 };
+
+// CHECK IS FUNCTION
+export const isFunction = (f) => {
+  return typeof f === 'function';
+};

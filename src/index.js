@@ -9,11 +9,9 @@ import AppError from './utils/AppError.js';
 import connectDB from './database/connect.js';
 
 import globalErrorHandler from './middlewares/errorMiddleware.js';
-import userRouter from './routers/userRouter.js';
-import tourRouter from './routers/tourRouter.js';
-import authRouter from './routers/authRouter.js';
-import permissionRouter from './routers/permissionRouter.js';
-import roleRouter from './routers/roleRouter.js';
+import sectorRouter from './routers/sectorRouter.js';
+import branchRouter from './routers/branchRouter.js';
+import jobRouter from './routers/jobRouter.js';
 
 // CATCH UNCAHGHT SYNC EXCEPTION
 process.on('uncaughtException', (err) => {
@@ -29,7 +27,7 @@ dotenv.config({ path: 'src/config/config.env' });
 // CONNECT TO DATABASE
 connectDB();
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 7000;
 
 // EXPRESS APP
 const app = express();
@@ -67,16 +65,14 @@ app.get('/', (req, res) => {
   res.send('WELCOME TO THE SERVER');
 });
 
-// 1) Auth
-app.use('/api/v1/auth', authRouter);
-// 2) User
-app.use('/api/v1/users', userRouter);
-// 3) Permission
-app.use('/api/v1/permissions', permissionRouter);
-// 4) Role
-app.use('/api/v1/roles', roleRouter);
-// 2) Tour
-app.use('/api/v1/tours', tourRouter);
+// 1) SECTOR
+app.use('/api/v1/sectors', sectorRouter);
+
+// 2) BRANCH
+app.use('/api/v1/branches', branchRouter);
+
+// 3) JOB
+app.use('/api/v1/jobs', jobRouter);
 
 //  CATCH UNHANDLED ROUTES
 app.all('*', (req, res, next) => {

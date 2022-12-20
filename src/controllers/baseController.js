@@ -1,102 +1,35 @@
-import AppError from '../utils/AppError.js';
+import AppError from '../utils/appError.js';
 import catchAsync from '../utils/catchAsync.js';
+import APIFeatures from '../utils/apiFeatures.js';
 
 export const getAll = (Model) =>
   catchAsync(async (req, res, next) => {
-    let query;
+    const count = await Model.countDocuments();
 
-    // 1) FILTERING
-    // 1.1) Clone Query Object
-    const queryClone = { ...req.query };
+    const features = new APIFeatures(Model.find(), req.query)
+      .filter()
+      .sort()
+      .select()
+      .populate()
+      .paginate(count);
 
-    // 1.2) Exclude SORT, PAGE, LIMIT and SELECT fields
-    const excludedFields = ['sort', 'page', 'limit', 'select'];
-
-    excludedFields.forEach((field) => delete queryClone[field]);
-
-    // 1.3) Replace operators with MONGO operators
-    let queryStr = JSON.stringify(queryClone);
-
-    queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, (match) => `$${match}`);
-    const queryObj = JSON.parse(queryStr);
-
-    // 1.4) Parse query list (with comma) to Array
-    const queryClean = {};
-
-    Object.keys(queryObj).forEach((key) => {
-      if (typeof queryObj[key] === 'string' && queryObj[key].includes(',')) {
-        const values = queryObj[key].split(',').map((val) => val.trim());
-
-        queryClean[key] = values;
-      } else {
-        queryClean[key] = queryObj[key];
-      }
-    });
-
-    query = Model.find(queryClean);
-
-    // 2) SORTING
-    if (req.query.sort) {
-      const sortBy = req.query.sort.split(',').join(' ');
-
-      query = query.sort(sortBy);
-    } else {
-      query = query.sort('-createdAt');
-    }
-
-    // 3) SELECTING
-    if (req.query.select) {
-      const fields = req.query.select.split(',').join(' ');
-
-      query = query.select(fields);
-    } else {
-      query = query.select('-__v');
-    }
-
-    // 4) PAGINATION
-    const page = +req.query.page || 1;
-    const limit = +req.query.limit || 10;
-    const startIndex = (page - 1) * limit;
-    const endIndex = page * limit;
-    const pagination = {};
-
-    const total = await Model.countDocuments();
-
-    query = query.skip(startIndex).limit(limit);
-
-    if (startIndex > 0) {
-      pagination.prev = {
-        page: page - 1,
-        limit,
-      };
-    }
-
-    if (endIndex < total) {
-      pagination.next = {
-        page: page + 1,
-        limit,
-      };
-    }
-
-    // 5) POPULATION
-    // 6) FILTERING DELETED DOCUMENTS
-    query = query.find({
-      isDeleted: { $ne: true },
-    });
-
-    const docs = await query;
+    const docs = await features.query;
 
     res.status(200).json({
       status: 'success',
       result: docs.length,
-      pagination,
+      pagination: features.pagination,
       data: docs,
     });
   });
 
 export const getOneById = (Model) =>
   catchAsync(async (req, res, next) => {
-    const doc = await Model.findById(req.params.id);
+    const features = new APIFeatures(Model.findById(req.params.id), req.query)
+      .select()
+      .populate();
+
+    const doc = await features.query;
 
     if (!doc) return next(new AppError('No document found with that ID', 404));
 
@@ -108,11 +41,23 @@ export const getOneById = (Model) =>
 
 export const createOne = (Model) =>
   catchAsync(async (req, res, next) => {
+    // 1) Check the user in req object, and set createdBy and companyId by default
+    if (req.user) {
+      req.body.createdBy = req.user._id;
+      req.body.companyId = req.user.companyId;
+    }
+
     const newDoc = await Model.create(req.body);
+
+    const features = new APIFeatures(Model.findById(newDoc._id), req.query)
+      .select()
+      .populate();
+
+    const doc = await features.query;
 
     res.status(201).json({
       status: 'success',
-      data: newDoc,
+      data: doc,
     });
   });
 
@@ -134,6 +79,17 @@ export const updateOne = (Model) =>
 
 export const deleteOne = (Model) =>
   catchAsync(async (req, res, next) => {
+    const isDeletable =
+      typeof Model.checkIsDeletable === 'function'
+        ? await Model.checkIsDeletable(req.params.id)
+        : true;
+
+    if (!isDeletable) {
+      return next(
+        new AppError('This item has already applied, cannot be deleted', 400)
+      );
+    }
+
     const deletedDoc = await Model.findByIdAndDelete(req.params.id);
 
     if (!deletedDoc)

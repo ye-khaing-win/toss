@@ -2,8 +2,8 @@ import util from 'util';
 import jwt from 'jsonwebtoken';
 import AppError from '../utils/appError.js';
 import catchAsync from '../utils/catchAsync.js';
-import User from '../models/userModel.js';
-import Role from '../models/roleModel.js';
+import User from '../models/auth/userModel.js';
+import Role from '../models/auth/roleModel.js';
 
 // PROTECT ROUTES
 export const protect = catchAsync(async (req, res, next) => {
@@ -61,13 +61,11 @@ export const protect = catchAsync(async (req, res, next) => {
 export const authorize = (key, action) => {
   return catchAsync(async (req, res, next) => {
     // 1) Check the route is protected, If not (no req.user), grant access to the route
-    if (!req.user?.role) {
+    if (!req.user?.roleId) {
       return next();
     }
 
-    const role = await Role.findById(req.user.role).populate({
-      path: 'permissions',
-    });
+    const role = await Role.findById(req.user.roleId).populate('permissions');
 
     // 2) Check the role is SuperAdmin, to grant full access
     if (role.type === 'super-admin') {
